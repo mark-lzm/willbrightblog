@@ -1,0 +1,1067 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>集合类 | Toys</title><meta name="author" content="Li zm"><meta name="copyright" content="Li zm"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="集合类一、集合基础知识1.集合与数组存储数据概述 集合、数组都是对多个数据进行存储操作的结构，简称Java容器，存放于java.util包中。  说明：此时的存储，主要指的是内存层面的存储，不涉及到持久化的存储（.txt,.jpg,.avi，数据库中)    2.数组与集合存储的比较 数组的长度是固定的，集合的长度是可变的  数组的内存存储  数组一旦初始化以后，其长度固定 数组数据类型的声明，就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集合类">
+<meta property="og:url" content="http://example.com/2022/10/23/%E9%9B%86%E5%90%88%E7%B1%BB/index.html">
+<meta property="og:site_name" content="Toys">
+<meta property="og:description" content="集合类一、集合基础知识1.集合与数组存储数据概述 集合、数组都是对多个数据进行存储操作的结构，简称Java容器，存放于java.util包中。  说明：此时的存储，主要指的是内存层面的存储，不涉及到持久化的存储（.txt,.jpg,.avi，数据库中)    2.数组与集合存储的比较 数组的长度是固定的，集合的长度是可变的  数组的内存存储  数组一旦初始化以后，其长度固定 数组数据类型的声明，就">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-23T11:33:18.000Z">
+<meta property="article:modified_time" content="2022-10-23T11:35:33.388Z">
+<meta property="article:author" content="Li zm">
+<meta name="twitter:card" content="summary"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/10/23/%E9%9B%86%E5%90%88%E7%B1%BB/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '集合类',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-23 19:35:33'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清單</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音樂</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 電影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友鏈</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Toys</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清單</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音樂</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 電影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友鏈</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">集合类</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-23T11:33:18.000Z" title="发表于 2022-10-23 19:33:18">2022-10-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-23T11:35:33.388Z" title="更新于 2022-10-23 19:35:33">2022-10-23</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="集合类"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="集合类"><a href="#集合类" class="headerlink" title="集合类"></a>集合类</h1><h2 id="一、集合基础知识"><a href="#一、集合基础知识" class="headerlink" title="一、集合基础知识"></a>一、集合基础知识</h2><h3 id="1-集合与数组存储数据概述"><a href="#1-集合与数组存储数据概述" class="headerlink" title="1.集合与数组存储数据概述"></a>1.集合与数组存储数据概述</h3><ul>
+<li><p>集合、数组都是对多个数据进行存储操作的结构，简称<strong>Java容器</strong>，存放于<code>java.util</code>包中。</p>
+<blockquote>
+<p>说明：此时的存储，主要指的是内存层面的存储，不涉及到持久化的存储（.txt,.jpg,.avi，数据库中)</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2-数组与集合存储的比较"><a href="#2-数组与集合存储的比较" class="headerlink" title="2.数组与集合存储的比较"></a>2.数组与集合存储的比较</h3><ul>
+<li><p>数组的长度是固定的，集合的长度是可变的</p>
+</li>
+<li><p>数组的<strong>内存存储</strong></p>
+<ul>
+<li>数组一旦<strong>初始化</strong>以后，其<strong>长度固定</strong></li>
+<li>数组数据类型的声明，就决定了<strong>元素初始化时的数据类型</strong></li>
+<li>比如：<code>String[] arr</code>、<code>int[] arr1</code>、<code>Object[] arr2</code></li>
+</ul>
+</li>
+<li><p>数组的弊端</p>
+<ol>
+<li>一旦初始化以后，其长度就不可修改。</li>
+<li>数组中提供的方法非常限，对于添加、删除、插入数据等操作，非常不便，同时效率不高。</li>
+<li>获取数组中实际元素的个数的需求，数组没有现成的属性或方法可用</li>
+<li>数组存储数据的特点：有序、可重复。对于无序、不可重复的需求，不能满足。</li>
+</ol>
+</li>
+<li><p>集合存储的优点</p>
+<ul>
+<li>可以<strong>动态保存</strong>任意多个对象，使用比较方便！</li>
+<li>提供了一系列方便的操作对象的方法：add、remove、set、get等</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="二、Collection接口"><a href="#二、Collection接口" class="headerlink" title="二、Collection接口"></a>二、Collection接口</h2><img src=".\image-20220803214519015.png" alt="image-20220803214519015" style="zoom:50%;" />
+
+<ul>
+<li><p>Collection接口是List、Set和Queue接口的父接口，该接口里定义的方法既可用于操作Set集合，也可用于操作List和Queue集合。</p>
+</li>
+<li><p>JDK不提供此接口的任何直接实现，而是提供更具体的子接口（如：Set和List）实现。</p>
+</li>
+<li><p>在JDK 5.0之前，Java集合会丢失容器中所有对象的数据类型，把所有对象都当成 Object类型处理；从JDK 5.0增加了泛型以后，Java集合可以记住容器中对象的数据类型。</p>
+</li>
+</ul>
+<h3 id="1-单列集合框架结构"><a href="#1-单列集合框架结构" class="headerlink" title="1.单列集合框架结构"></a>1.单列集合框架结构</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">|----Collection接口：单列集合，用来存储一个一个的对象</span><br><span class="line">     |----List接口：存储有序的、可重复的数据。  --&gt;“动态”数组</span><br><span class="line">           |----ArrayList：作为List接口的主要实现类，线程不安全的，效率高；底层采用Object[] elementData数组存储</span><br><span class="line">           |----LinkedList：对于频繁的插入删除操作，使用此类效率比ArrayList效率高；底层采用双向链表存储</span><br><span class="line">           |----Vector：作为List的古老实现类，线程安全的，效率低；底层采用Object[]数组存储</span><br><span class="line">           </span><br><span class="line">     |----Set接口：存储无序的、不可重复的数据   --&gt;数学概念上的“集合”</span><br><span class="line">           |----HashSet：作为Set接口主要实现类；线程不安全；可以存null值</span><br><span class="line">           		|----LinkedHashSet：作为HashSet的子类；遍历其内部数据时，可以按照添加顺序遍历；对于频繁的遍历操作，LinkedHashSet效率高于HashSet.</span><br><span class="line">           |----TreeSet：可以按照添加对象的指定属性，进行排序。</span><br></pre></td></tr></table></figure>
+
+<p>图示：</p>
+<img src=".\images\image-20220803214620647.png" alt="image-20220803214620647" style="zoom:50%;" />
+
+<h3 id="2-Collection接口常用方法"><a href="#2-Collection接口常用方法" class="headerlink" title="2.Collection接口常用方法"></a>2.Collection接口常用方法</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1.增加方法</td>
+<td>boolean add(Object o)</td>
+<td>添加一个元素到当前集合</td>
+</tr>
+<tr>
+<td></td>
+<td>boolean addAll(Collection c)</td>
+<td>添加指定集合c中的所有元素</td>
+</tr>
+<tr>
+<td>2.删除方法</td>
+<td>boolean remove(Object o)</td>
+<td>移除当前集合中指定的元素</td>
+</tr>
+<tr>
+<td></td>
+<td>boolean remove(Collection c)</td>
+<td>移除当前集合中包含集合c的所有元素</td>
+</tr>
+<tr>
+<td></td>
+<td>void clear()</td>
+<td>清空当前集合中的所有元素</td>
+</tr>
+<tr>
+<td>3.修改方法</td>
+<td>set(int index,Object element)</td>
+<td>index索引、element 元素</td>
+</tr>
+<tr>
+<td>4.查找方法</td>
+<td>boolean contains(Object o)</td>
+<td>判断当前集合是否包含某种元素（调用了equals方法）</td>
+</tr>
+<tr>
+<td></td>
+<td>boolean contains(Collection c)</td>
+<td>判断当前集合是否包含集合c的所有元素（调用了equals方法）</td>
+</tr>
+<tr>
+<td>5.访问方法</td>
+<td>get(int index)</td>
+<td></td>
+</tr>
+<tr>
+<td>6.其他方法</td>
+<td>int size()</td>
+<td>获得当前集合的元素个数</td>
+</tr>
+<tr>
+<td></td>
+<td>boolean isEmpty()</td>
+<td>判断当前集合是否为空</td>
+</tr>
+<tr>
+<td></td>
+<td>Iterator iterator()</td>
+<td>获得当前集合的迭代器(Iterator)，用于遍历集合的所有元素</td>
+</tr>
+<tr>
+<td></td>
+<td>Stream<E> stream()</td>
+<td>将集合源转换为有序元素的源对象</td>
+</tr>
+<tr>
+<td></td>
+<td>boolean equals(Object obj)</td>
+<td>判读集合是否相等</td>
+</tr>
+<tr>
+<td></td>
+<td>Object[] toArray()</td>
+<td>转成对象数组</td>
+</tr>
+<tr>
+<td></td>
+<td>int hashCode();</td>
+<td>获取该集合的hashCode</td>
+</tr>
+</tbody></table>
+<h3 id="3-Collection集合与数组间的转换"><a href="#3-Collection集合与数组间的转换" class="headerlink" title="3.Collection集合与数组间的转换"></a>3.Collection集合与数组间的转换</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//集合 ---&gt;数组：toArray()</span></span><br><span class="line">Object[] arr = coll.toArray();</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; arr.length;i++)&#123;</span><br><span class="line">    System.out.println(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//拓展：数组 ---&gt;集合:调用Arrays类的静态方法asList(T ... t)</span></span><br><span class="line">List&lt;String&gt; list = Arrays.asList(<span class="keyword">new</span> <span class="title class_">String</span>[]&#123;<span class="string">&quot;AA&quot;</span>, <span class="string">&quot;BB&quot;</span>, <span class="string">&quot;CC&quot;</span>&#125;);</span><br><span class="line">System.out.println(list);</span><br><span class="line"></span><br><span class="line"><span class="type">List</span> <span class="variable">arr1</span> <span class="operator">=</span> Arrays.asList(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">123</span>, <span class="number">456</span>&#125;);</span><br><span class="line">System.out.println(arr1.size());<span class="comment">//1</span></span><br><span class="line"></span><br><span class="line"><span class="type">List</span> <span class="variable">arr2</span> <span class="operator">=</span> Arrays.asList(<span class="keyword">new</span> <span class="title class_">Integer</span>[]&#123;<span class="number">123</span>, <span class="number">456</span>&#125;);</span><br><span class="line">System.out.println(arr2.size());<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、Iterator迭代器"><a href="#三、Iterator迭代器" class="headerlink" title="三、Iterator迭代器"></a>三、Iterator迭代器</h2><h3 id="1-Iterator迭代器循环"><a href="#1-Iterator迭代器循环" class="headerlink" title="1.Iterator迭代器循环"></a>1.Iterator迭代器循环</h3><ul>
+<li><p>概念：迭代器是一个对象，用来遍历并选择序列中的对象(元素)，而用户不必知道或关心该序列底层的结构。<strong>所有集合类都实现了Iterator接口</strong></p>
+</li>
+<li><p>方法：</p>
+<ul>
+<li><strong><code>Iterator iterator()</code></strong>  —  返回一个 Iterator迭代器对象，Iterator将准备好返回一个序列的第一个元素。</li>
+<li><strong><code>boolean hasNext()</code></strong>  —  判断是否还有下一个元素。</li>
+<li><strong><code>Object next()</code></strong>  —  返回下一个元素。</li>
+<li><strong><code>remove()</code></strong>  —  删除集合的元素（在迭代器中需要先调用next方法才能调用remove方法，否则报IllegalStateException）</li>
+</ul>
+</li>
+<li><p>实例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Iterator</span> <span class="variable">iterator</span> <span class="operator">=</span> coll.iterator(); <span class="comment">//转换为迭代器对象</span></span><br><span class="line"><span class="comment">//hasNext():判断是否还下一个元素</span></span><br><span class="line"><span class="keyword">while</span>(iterator.hasNext()) &#123; </span><br><span class="line">     <span class="comment">//next():①指针下移 ②将下移以后集合位置上的元素返回</span></span><br><span class="line">    System.out.println(iterator.next());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src=".\images\image-20220803220050246.png" alt="image-20220803220050246" style="zoom:50%;" />
+</li>
+<li><p><code>remove()</code>方法的使用</p>
+<ul>
+<li><p>如果还未调用 <code>next()</code> 或在上一次调用 <code>next()</code> 方法之后已经调用了 <code>remove()</code> 方法，再调用 remove 都会报 <code>IllegalStateException</code>。</p>
+</li>
+<li><p>内部定义了 <code>remove()</code>,可以在遍历的时候，删除集合中的元素。此方法不同于集合直接调用<code>remove()</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-forEach循环"><a href="#2-forEach循环" class="headerlink" title="2.forEach循环"></a>2.forEach循环</h3><ul>
+<li><p>JDK 5.0新特性–增强for循环：(foreach循环)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//遍历集合</span></span><br><span class="line"><span class="keyword">for</span>(Object obj : coll)&#123;</span><br><span class="line">    System.out.println(obj);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//遍历数组</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i : arr)&#123;</span><br><span class="line">    System.out.println(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>说明：内部仍然调用了迭代器。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="四、List接口"><a href="#四、List接口" class="headerlink" title="四、List接口"></a>四、List接口</h2><h3 id="1-存储的数据特点"><a href="#1-存储的数据特点" class="headerlink" title="1.存储的数据特点"></a>1.存储的数据特点</h3><p>存储是<strong>有序的、可重复</strong>的数据。</p>
+<ul>
+<li>List集合类中元素有序、且可重复，集合中的每个元素都有其对应的顺序<strong>索引</strong>。</li>
+<li>List容器中的元素都对应一个整数型的序号记载其在容器中的位置，可以根据序号存取容器中的元素。</li>
+<li>JDK API中List接口的实现类常用的有：ArrayList、LinkedList和 Vector.</li>
+<li>添加的对象，所在的类要重写equals()方法</li>
+</ul>
+<h3 id="2-常用方法"><a href="#2-常用方法" class="headerlink" title="2.常用方法"></a>2.常用方法</h3><p>List除了从Collection集合继承的方法外，List集合里添加了一些根据索引来操作集合元素的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> index, Object ele)</span> <span class="comment">//在index位置插入ele元素</span></span><br><span class="line"><span class="type">boolean</span> <span class="title function_">addAll</span><span class="params">(<span class="type">int</span> index, Collection eles)</span> <span class="comment">//从index位置开始将eles中的所有元素添加进来</span></span><br><span class="line">Object <span class="title function_">get</span><span class="params">(<span class="type">int</span> index)</span> <span class="comment">//获取指定index位置的元素</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">indexOf</span><span class="params">(Object obj)</span> <span class="comment">//返回obj在集合中首次出现的位置</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">lastIndexOf</span><span class="params">(Object obj)</span> <span class="comment">//返回obj在当前集合中末次出现的位置</span></span><br><span class="line">Object <span class="title function_">remove</span><span class="params">(<span class="type">int</span> index)</span> <span class="comment">//移除指定index位置的元素，并返回此元素</span></span><br><span class="line">Object <span class="title function_">set</span><span class="params">(<span class="type">int</span> index, Object ele)</span> <span class="comment">//设置指定index位置的元素为ele</span></span><br><span class="line">List <span class="title function_">subList</span><span class="params">(<span class="type">int</span> fromIndex, <span class="type">int</span> toIndex)</span> <span class="comment">//返回从fromIndex到toIndex位置的子集合</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-常用实现类"><a href="#3-常用实现类" class="headerlink" title="3.常用实现类"></a>3.常用实现类</h3><ul>
+<li><p>ArrayList   —  线程不安全，查找速度快，但増删效率低；<strong>底层采用可变长度的数组【Object[] elementData】存储</strong></p>
+</li>
+<li><p>LinkedList  —  采用<strong>链表</strong>的结构，増删效率髙，但査找速度慢；<strong>底层使用双向链表存储</strong></p>
+</li>
+<li><p>Vector     —  线程安全的，效率低；底层使用【Object[] elementData】存储</p>
+</li>
+</ul>
+<h4 id="ArrayList集合"><a href="#ArrayList集合" class="headerlink" title="ArrayList集合"></a>ArrayList集合</h4><ul>
+<li><p>概念：底层采用<strong>可变长度</strong>的<strong>数组，</strong>查找速度快，但増删效率比较低。</p>
+<ul>
+<li><p><strong>允许 null 的存在</strong>。同时还实现了 RandomAccess、Cloneable、Serializable 接口，所以ArrayList 是支持<strong>快速访问</strong>、<strong>复制</strong>、<strong>序列化</strong>的。</p>
+</li>
+<li><p>size 指的是实际的元素个数，而length指的是集合容量（默认初始容量大小为 10）</p>
+</li>
+</ul>
+</li>
+<li><p>ArrayList源码详解</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sihai12345/article/details/79382649?ops_request_misc=%7B%22request_id%22:%22164120901216780264091929%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=164120901216780264091929&biz_id=0&spm=1018.2226.3001.4187">ArrayList详解，看这篇就够了_hello-java-maker的博客-CSDN博客_arrylist</a></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>源码扩容机制结论❤</strong></p>
+<ol>
+<li><p>ArrayList中维护了一个Object类型的数组elementData【<code>transient Object[] elementData;</code>】</p>
+</li>
+<li><p>当创建ArrayList对象时，如果使用的是无参构造器，则初始elementData容量为0，第1次添加数据时，则扩容elementData为10，如需再次扩容，则扩容elementData为1.5倍。</p>
+<p>【<code>int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);</code>】</p>
+</li>
+<li><p>如果使用的是指定大小的构造器，则初始elementData容量为指定大小，如果需要扩容，则直接扩容elementData为1.5倍。</p>
+</li>
+</ol>
+</blockquote>
+<ul>
+<li><p>ArrayList在JDK 1.8之前与之后的实现区别？</p>
+<ul>
+<li><p>JDK 1.7：ArrayList像饿汉式，直接创建一个初始容量为10的数组。</p>
+</li>
+<li><p>JDK 1.8：ArrayList像懒汉式，一开始创建一个长度为0的数组，当添加第一个元素时再创建一个始容量为10的数组。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="LinkedList集合"><a href="#LinkedList集合" class="headerlink" title="LinkedList集合"></a>LinkedList集合</h4><ul>
+<li><p>概念：采用链表的结构，増删效率髙，但査找速度较慢【双向链表】</p>
+<ul>
+<li><p>LinkedList类采用链表结构保存对象，这种结构的优点是便于同集合中插入和删除对象。</p>
+</li>
+<li><p>内部没有声明数组，而是定义了Node类型的frst和last，用于记录首末元素，维护了一个双向循环链表。</p>
+</li>
+<li><p>同时，定义内部类Node，作为Linkedlist中保存数据的基本结构。Node除了保存数据，还定义了两个变量：</p>
+<ul>
+<li><p>prev：变量记录前一个元素的位置</p>
+</li>
+<li><p>next：变量记录下一个元素的位置</p>
+<img src=".\images\image-20220803225403866.png" alt="image-20220803225403866" style="zoom:50%;" /></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#添加方法</span><br><span class="line"><span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> index)</span><span class="comment">//在此列表中指定的位置插入指定的元素</span></span><br><span class="line"><span class="comment">//将指定元素插入集合的开头</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">addFirst</span><span class="params">(object o)</span>   <span class="type">boolean</span> <span class="title function_">offer</span><span class="params">(object o)</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">push</span><span class="params">(object o)</span>       <span class="type">boolean</span> <span class="title function_">offerFirst</span><span class="params">(object o)</span></span><br><span class="line"><span class="comment">//将指定元素插入集合的结尾</span></span><br><span class="line"><span class="type">boolean</span> <span class="title function_">offerLast</span><span class="params">(object o)</span>   <span class="keyword">void</span> <span class="title function_">addlLast</span><span class="params">(object o)</span></span><br><span class="line">    </span><br><span class="line">#获取方法</span><br><span class="line">Object <span class="title function_">getFirst</span><span class="params">()</span> <span class="comment">//返回集合的第一个元素</span></span><br><span class="line">Object <span class="title function_">getLast</span><span class="params">()</span> <span class="comment">//返回集合的最后一个元素</span></span><br><span class="line"><span class="comment">//获取集合的第一个元素</span></span><br><span class="line">Object <span class="title function_">peek</span><span class="params">(object o)</span>   Object <span class="title function_">peekFirst</span><span class="params">(object o)</span></span><br><span class="line">Object <span class="title function_">peekLast</span><span class="params">(object o)</span><span class="comment">//获取集合的最后一个元素</span></span><br><span class="line">    </span><br><span class="line">#删除方法</span><br><span class="line"><span class="comment">//删除并返回集合的第一个元素</span></span><br><span class="line">Object <span class="title function_">removeFirst</span><span class="params">()</span>   Object <span class="title function_">poll</span><span class="params">(object o)</span></span><br><span class="line">Object <span class="title function_">pollFirst</span><span class="params">(object o)</span>   Object <span class="title function_">pop</span><span class="params">()</span></span><br><span class="line"><span class="comment">//删除并返回集合的最后一个元素</span></span><br><span class="line">Object <span class="title function_">removeLast</span><span class="params">()</span>   Object <span class="title function_">pollLast</span><span class="params">(object o)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>LinkedList源码详解</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35029061/article/details/100537471?ops_request_misc=%7B%22request_id%22:%22165156911416782390562851%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=165156911416782390562851&biz_id=0&spm=1018.2226.3001.4187">java的LinkedList源码详解_wespten的博客-CSDN博客</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LinkedList</span> <span class="variable">list</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LinkedList</span>(); <span class="comment">//内部声明了Node类型的first和last属性，默认值为null</span></span><br><span class="line">list.add(<span class="number">123</span>);<span class="comment">//将123封装到Node中，创建了Node对象。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">transient</span> Node&lt;E&gt; first;</span><br><span class="line"><span class="keyword">transient</span> Node&lt;E&gt; last;</span><br><span class="line"></span><br><span class="line"><span class="comment">//其中，Node定义为：体现了LinkedList的双向链表的说法</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Node</span>&lt;E&gt; &#123;</span><br><span class="line">    E item;</span><br><span class="line">    Node&lt;E&gt; next;</span><br><span class="line">    Node&lt;E&gt; prev;</span><br><span class="line"></span><br><span class="line">    Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) &#123;</span><br><span class="line">        <span class="built_in">this</span>.item = element;</span><br><span class="line">        <span class="built_in">this</span>.next = next;</span><br><span class="line">        <span class="built_in">this</span>.prev = prev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="Vector集合"><a href="#Vector集合" class="headerlink" title="Vector集合"></a>Vector集合</h4><ul>
+<li><p>概念：大多数操作与ArrayList相同，区别之处在于Vector是<strong>线程安全</strong>的</p>
+</li>
+<li><p>各种list中，最好把ArrayList作为缺省选择，当插入、删除频繁时，使用LinkedList，而Vector总是比ArrayList慢，所有尽量避免使用。</p>
+</li>
+<li><p>方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">addElement</span><span class="params">(Object obj)</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">InsertElementAt</span><span class="params">(Object obj,<span class="type">int</span> index)</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">setElementAt</span><span class="params">(Object obj,<span class="type">int</span> index)</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">removeElement</span><span class="params">(Object obj)</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">removeAllElements</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Vector源码详解</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44171910/article/details/122048271?ops_request_misc=%7B%22request_id%22:%22165156829816780357266275%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=165156829816780357266275&biz_id=0&spm=1018.2226.3001.4187">Java集合 Vector源码_知之为知的博客-CSDN博客</a></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>源码扩容机制结论❤</strong></p>
+<ol>
+<li><p>当创建Vector对象时，如果使用的是<strong>无参构造器</strong>，则初始<strong>elementData容量为10</strong>，如需要<strong>扩容</strong>，则<strong>扩容elementData为2倍</strong></p>
+<p>【**<code>int newCapacity = oldCapacity + ((capacityIncrement &gt; 0) ?  capacityIncrement : oldCapacity);</code>**】</p>
+</li>
+<li><p>如果使用的是指定大小的构造器，则初始elementData容量为指定大小，如果需要扩容，则直接扩容elementData为2倍。</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="4-面试题"><a href="#4-面试题" class="headerlink" title="4.面试题"></a>4.面试题</h3><p>请问 ArrayList&#x2F;LinkedList&#x2F;Vector的异同？谈谈你的理解？ArrayList底层是什么？扩容机制？ Vector和 ArrayList的最大区别？</p>
+<ul>
+<li><p>ArrayList和 Linkedlist的异同：</p>
+<p>二者都线程不安全，相比线程安全的 Vector，ArrayList执行效率高。 此外，ArrayList是实现了基于动态数组的数据结构，Linkedlist基于链表的数据结构。对于随机访问get和set，ArrayList觉得优于Linkedlist，因为Linkedlist要移动指针。对于新增和删除操作add（特指插入）和 remove，Linkedlist比较占优势，因为 ArrayList要移动数据。</p>
+</li>
+<li><p>ArrayList和 Vector的区别：</p>
+<p>Vector和ArrayList几乎是完全相同的，唯一的区别在于Vector是同步类(synchronized)，属于强同步类。因此开销就比 ArrayList要大，访问要慢。正常情况下，大多数的Java程序员使用ArrayList而不是Vector，因为同步完全可以由程序员自己来控制。Vector每次扩容请求其大小的2倍空间，而ArrayList是1.5倍。Vector还有一个子类Stack。</p>
+</li>
+</ul>
+<hr>
+<h2 id="五、Set接口"><a href="#五、Set接口" class="headerlink" title="五、Set接口"></a>五、Set接口</h2><ul>
+<li><p>Set接口是Collection的子接口，set接口没有提供额外的方法</p>
+</li>
+<li><p>Set集合不允许包含相同的元素，如果试把两个相同的元素加入同一个Set集合中，则添加操作失败。（多用于过滤操作，去掉重复数据）</p>
+</li>
+<li><p>Set判断两个对象是否相同不是使用&#x3D;&#x3D;运算符，而是根据equals()方法</p>
+</li>
+<li><p>存放在Set容器的对象，对应的类一定要<strong>重写<code>equals()</code>和<code>hashCode(object obj)</code><strong>方法，以实现对象相等规则。即：“</strong>相等的对象必须具有相等的散列码</strong>”。</p>
+</li>
+</ul>
+<h3 id="1-存储的数据特点-1"><a href="#1-存储的数据特点-1" class="headerlink" title="1.存储的数据特点"></a>1.存储的数据特点</h3><p>用于存放<strong>无序的、不可重复</strong>的元素</p>
+<ol>
+<li>无序性：不等于随机性。存储的数据在底层数组中并非照数组索引的顺序添加，而是根据数据的哈希值决定的。</li>
+<li>不可重复性：保证添加的元素照equals()判断时，不能返回true。即：相同的元素只能添加一个。</li>
+</ol>
+<h3 id="2-元素添加过程：-以HashSet为例"><a href="#2-元素添加过程：-以HashSet为例" class="headerlink" title="2.元素添加过程：(以HashSet为例)"></a>2.元素添加过程：(以HashSet为例)</h3><ul>
+<li><p>我们向HashSet中添加元素a，首先调用元素a所在类的hashCode()方法，计算元素a的哈希值，此哈希值接着通过某种算法计算出在HashSet底层数组中的存放位置（即为：索引位置），判断数组此位置上是否已经有元素：</p>
+<ul>
+<li><p>如果此位置上没有其他元素，则元素a添加成功。 —&gt;情况1</p>
+</li>
+<li><p>如果此位置上有其他元素b(或以链表形式存在的多个元素），则比较元素a与元素b的hash值：</p>
+<ul>
+<li>如果hash值不相同，则元素a添加成功。—&gt;情况2</li>
+<li>如果hash值相同，进而需要调用元素a所在类的equals()方法：<ul>
+<li>equals()返回true,元素a添加失败</li>
+<li>equals()返回false,则元素a添加成功。—&gt;情况3</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>对于添加成功的情况2和情况3而言：元素a 与已经存在指定索引位置上数据以链表的方式存储。</p>
+</li>
+<li><p>总结：七上八下</p>
+<ul>
+<li>JDK 7.0 :元素a放到数组中，指向原来的元素。</li>
+<li>JDK 8.0 :原来的元素在数组中，指向元素a</li>
+</ul>
+</li>
+<li><p>HashSet底层：数组+链表的结构。（JDK 7.0以前）</p>
+<img src=".\images\image-20220804091335885.png" alt="image-20220804091335885" style="zoom:50%;" /></li>
+</ul>
+<h3 id="3-常用方法"><a href="#3-常用方法" class="headerlink" title="3.常用方法"></a>3.常用方法</h3><ul>
+<li>Set接口中没额外定义新的方法，使用的都是Collection中声明过的方法。</li>
+</ul>
+<ol>
+<li><p>重写<code>hashCode()</code>的基本方法</p>
+<ul>
+<li>在程序运行时，同一个对象多次调用 <code>hashCode()</code> 方法应该返回相同的值。</li>
+<li>当两个对象的 <code>equals()</code> 方法比较返回true时，这两个对象的 <code>hashCode()</code> 方法的返回值也应相等。</li>
+<li>对象中用作 <code>equals()</code> 方法比较的Field，都应该用来计算hashCode值。</li>
+</ul>
+</li>
+<li><p>重写<code>equals()</code>方法基本原则</p>
+<ul>
+<li><p>当一个类有自己特有的“逻辑相等”概念，当改写equals()的时候，总是要改写<code>hashCode()</code>，根据一个类的equals方法(改写后)，两个截然不同的实例有可能在逻辑上是相等的，但是，根据<code>Object.hashCode()</code>方法，它们仅仅是两个对象。</p>
+</li>
+<li><p>因此，违反了<strong>相等的对象必须具有相等的散列码</strong>.</p>
+</li>
+<li><p>结论：复写equals方法的时候一般都需要同时复写hashCode方法。通常参与计算hashCode的对象的属性也应该参与到<code>equals()</code>中进行计算。</p>
+</li>
+</ul>
+</li>
+<li><p>Eclipse&#x2F;IDEA工具里hashCode()重写</p>
+<p>问题：为什么用 Eclipse&#x2F;IDEA复写hashCode方法，有31这个数字？</p>
+<ul>
+<li><p>选择系数的时候要选择尽量大的系数。因为如果计算出来的hash地址越大，所谓的“冲突”就越少，查找起来效率也会提高。（减少冲突）</p>
+</li>
+<li><p>并且31只占用5bits，相乘造成数据溢出的概率较小。</p>
+</li>
+<li><p>31可以由i*31&#x3D;&#x3D;(&lt;&lt;5)-1来表示，现在很多虚拟机里面都有做相关优化。（提高算法效率）</p>
+</li>
+<li><p>31是一个素数，素数作用就是如果我用一个数字来乘以这个素数，那么最终出来的结果只能被素数本身和被乘数还有1来整除！（减少冲突）</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-常用实现类"><a href="#4-常用实现类" class="headerlink" title="4.常用实现类"></a>4.常用实现类</h3><ul>
+<li>HashSet：作为Set接口的主要实现类；线程不安全的；可以存储null值                <ul>
+<li>LinkedHashSet：作为HashSet的子类；遍历其内部数据时，可以按照添加的顺序遍历，对于频繁的遍历操作，LinkedHashSet效率高于HashSet.</li>
+</ul>
+</li>
+<li>TreeSet：可以按照添加对象的指定属性，进行排序。</li>
+</ul>
+<h4 id="HashSet集合"><a href="#HashSet集合" class="headerlink" title="HashSet集合"></a>HashSet集合</h4><ul>
+<li><p>概念：实现了Set接口的对象又称为Set集合，无索引，根据Hash算法来存储集合中的元素，因此具有很好的存取、查找、删除性能。</p>
+<ul>
+<li><strong>无序集合</strong>(是根据hashcode的值排序取出)，不能包含重复元素</li>
+<li><strong>线程不安全</strong></li>
+<li>集合元素能存在有且一个null值</li>
+</ul>
+</li>
+<li><p><strong>HashSet集合判断两个元素相等的标准</strong>：</p>
+</li>
+<li><p>两个对象通过<code>hashCode()</code>方法比较相等，并且两个对象的<code>equals()</code>方法返回值也相等。</p>
+</li>
+<li><p>对于存放在Set容器中的对象，对应的类一定要重写equals()和hashCode(Object obj)方法，以实现对象相等规则。即：“相等的对象必须具有相等的散列码”</p>
+</li>
+<li><p>HashSet源码详解</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46573836/article/details/122291955">HashSet底层结构和源码分析_imagpie的博客-CSDN博客_hashset底层结构</a></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>源码底层原理❤</strong></p>
+<ol>
+<li><p>HashSet底层是HashMap【数组+链表+红黑树】</p>
+</li>
+<li><p>添加一个元素时，先得到hash值  → 根据hash算法转换 → 索引值</p>
+</li>
+<li><p>根据索引值找到存储数据表table，看这个索引位置是否已经存放元素</p>
+<ul>
+<li>如果没有，直接加入</li>
+<li>如果有，调用equals比较，相同则放弃添加，不同则添加到链表最后</li>
+</ul>
+</li>
+<li><p>在Java8中，如果一条链表的元素个数到达<code>TREEIFY_THRESHOLD</code>(默认是8)，并且table的大小 ≥ <code>MIN_TREEIFY_CAPACITY</code>(默认64)就会进行树化（红黑树）</p>
+<p>【注意：当链表个数到达8，而table大小仍为16时，需要两次扩容到达64才能转换为红黑树（即链表个数到达10）】</p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>源码扩容机制结论❤</strong></p>
+<ol>
+<li><p>底层是HashMap【数组+链表+红黑树】，初始容量为16</p>
+<p>【<code>static final int DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4; // aka 16</code>】</p>
+</li>
+<li><p>当使用率超过0.75（16×0.75&#x3D;12）就会扩大容量为原来的2倍。（16扩容为32，依次是64、128…等）</p>
+<p>【<code>newThr = (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);</code>】</p>
+<p>【<code>static final float DEFAULT_LOAD_FACTOR = 0.75f;</code>】</p>
+<p>注意：这个使用率超过0.75是加入Node的个数，而不是使用了的table表中数组的个数。</p>
+</li>
+</ol>
+</blockquote>
+<h4 id="LinkedHashSet集合"><a href="#LinkedHashSet集合" class="headerlink" title="LinkedHashSet集合"></a>LinkedHashSet集合</h4><ul>
+<li><p>概念</p>
+<ul>
+<li><p>LinkedhashSet是HashSet的子类</p>
+</li>
+<li><p>根据元素的hashCode值来决定元素的存储位置，但它同时使用双向链表维护元素的次序，使得元素看起来是以插入顺序保存的。<strong>底层是LinkedHashMap（数组+双向链表）</strong></p>
+</li>
+<li><p>LinkedHashSet插入性能略低于HashSet，但在迭代访问Set里的全部元素时有很好的性能。</p>
+</li>
+<li><p>LinkedHashSet不允许集合元素重复。</p>
+</li>
+</ul>
+<img src=".\images\image-20220804102503854.png" alt="image-20220804102503854" style="zoom:50%;" />
+</li>
+<li><p>LinkedHashSet源码详解</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/62528499">死磕 java集合之LinkedHashSet源码分析 - 知乎 (zhihu.com)</a></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>源码分析❤</strong></p>
+<ol>
+<li>LinkedHashSet加入顺序和取出元素&#x2F;数据的顺序一致</li>
+<li>LinkedHashSet底层维护的是一个<strong>LinkedHashMap</strong>(是HashMap的子类)</li>
+<li>LinkedHashSet底层结构（数组table+双向链表）</li>
+<li>添加第一次时，直接将数组table扩容到16，存放的结点类型是LinkedHashMap$Entry类型</li>
+<li>数组是 HashMap$Node[] 存放的元素&#x2F;数据是 LinkedHashMap$Entry类型</li>
+</ol>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * HashMap.Node subclass for normal LinkedHashMap entries.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Entry</span>&lt;K,V&gt; <span class="keyword">extends</span> <span class="title class_">HashMap</span>.Node&lt;K,V&gt; &#123;</span><br><span class="line">    Entry&lt;K,V&gt; before, after;</span><br><span class="line">    Entry(<span class="type">int</span> hash, K key, V value, Node&lt;K,V&gt; next) &#123;</span><br><span class="line">        <span class="built_in">super</span>(hash, key, value, next);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="TreeSet集合"><a href="#TreeSet集合" class="headerlink" title="TreeSet集合"></a>TreeSet集合</h4><ul>
+<li><p>概念</p>
+<ul>
+<li>TreeSet是SortedSet接口的实现类，TreeSet可以确保<strong>集合元素处于排序</strong>状态。</li>
+<li>TreeSet底层使用红黑树结构存储数据【<strong>有序，查询速度比List快</strong>】</li>
+</ul>
+</li>
+<li><p>方法</p>
+<ol>
+<li><p>取值方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object <span class="title function_">first</span><span class="params">()</span> <span class="comment">//返回集合的首个元素</span></span><br><span class="line">Object <span class="title function_">last</span><span class="params">()</span>  <span class="comment">//返回集合的最后一个元素</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>比较并取值方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Object <span class="title function_">lower</span><span class="params">(object o)</span>  <span class="comment">//返回 TreeSet集合中小于给定元素的最大元素,如果没有返null</span></span><br><span class="line">Object <span class="title function_">floor</span><span class="params">(object o)</span>  <span class="comment">//返回 TreeSet集合中小于或等于给定元素的最大元素,如果没有返回null</span></span><br><span class="line"></span><br><span class="line">Object <span class="title function_">higher</span><span class="params">(object o)</span>  <span class="comment">//返回 TreeSet集合中大于给定元素的最大元素,如果没有返null</span></span><br><span class="line">Object <span class="title function_">ceiling</span><span class="params">(object o)</span> <span class="comment">//返回 TreeSet集合中大于或等于给定元素的最小元素,如果没有返回null</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object <span class="title function_">pollFirst</span><span class="params">()</span> <span class="comment">//移除并返回集合的第一个元素</span></span><br><span class="line">Object <span class="title function_">pollLast</span><span class="params">()</span>  <span class="comment">//移除并返回集合的最后一个元素</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p><strong>排序方法</strong></p>
+<ul>
+<li><p>自然排序</p>
+<ul>
+<li>TreeSet会调用集合元素的 <strong><code>compareTo(Object obj)</code>方法来比较元素之间的大小关系，然后将集合元素按升序</strong>（默认情况）排列</li>
+<li>如果试图把一个<strong>对象添加到TreeSet</strong>时，则该对象的类必须<strong>实现 Comparable接口</strong>。</li>
+</ul>
+</li>
+<li><p>定制排序</p>
+<ul>
+<li><p>通过Comparator接口实现，需要重写<code>conpare(T o1,T o2)</code>方法</p>
+<ul>
+<li><p>利用 int compare(T o1,T o2)方法，比较o1和o2的大小：如果方法返回正整数，则表示o1大于o2；如果返回0，表示相等；返回负整数，表示01小于o2。</p>
+</li>
+<li><p>此时，只能向TreeSet中添加类型相同的对象。否则发生ClassCastException异常</p>
+</li>
+<li><p>使用定制排序判断<strong>两个元素相等的标准</strong>是：通过 Comparator比较两个元素返回了0</p>
+</li>
+</ul>
+</li>
+<li><p>示例</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * TreeSet的定制排序：</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testTreeSet2</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="comment">//1. 创建一个实现了Comparator接口的对象</span></span><br><span class="line">  <span class="type">Comparator</span> <span class="variable">com</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Comparator</span>() &#123;</span><br><span class="line">    <span class="comment">//向TreeSet中添加Customer类的对象，compare()方法中，</span></span><br><span class="line">    <span class="comment">//指明按照Customer的哪个属性进行排序</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Object o1, Object o2)</span> &#123;</span><br><span class="line">      <span class="keyword">if</span>(o1 <span class="keyword">instanceof</span> Customer &amp;&amp; o2 <span class="keyword">instanceof</span> Customer) &#123;</span><br><span class="line">        <span class="type">Customer</span> <span class="variable">c1</span> <span class="operator">=</span> (Customer)o1;</span><br><span class="line">        <span class="type">Customer</span> <span class="variable">c2</span> <span class="operator">=</span> (Customer)o2;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> c1.getId().compareTo(c2.getId());</span><br><span class="line">        <span class="keyword">if</span>(i == <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> c1.getName().compareTo(c2.getName());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="comment">//2.将此对象作为形参传递给TreeSet的构造器中</span></span><br><span class="line">  <span class="type">TreeSet</span> <span class="variable">set</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TreeSet</span>(com);</span><br><span class="line">  <span class="comment">//3.添加Comparator接口中的compare方法中涉及的类对象</span></span><br><span class="line">  set.add(<span class="keyword">new</span> <span class="title class_">Customer</span>(<span class="string">&quot;AA&quot;</span>,<span class="number">1003</span>));</span><br><span class="line">  set.add(<span class="keyword">new</span> <span class="title class_">Customer</span>(<span class="string">&quot;BB&quot;</span>,<span class="number">1002</span>));</span><br><span class="line">  set.add(<span class="keyword">new</span> <span class="title class_">Customer</span>(<span class="string">&quot;GG&quot;</span>,<span class="number">1004</span>));</span><br><span class="line">  set.add(<span class="keyword">new</span> <span class="title class_">Customer</span>(<span class="string">&quot;CC&quot;</span>,<span class="number">1001</span>));</span><br><span class="line">  set.add(<span class="keyword">new</span> <span class="title class_">Customer</span>(<span class="string">&quot;DD&quot;</span>,<span class="number">1007</span>));</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span>(Object obj : set) &#123;</span><br><span class="line">    System.out.println(obj);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>源码解析❤</strong></p>
+<ol>
+<li><p>当使用无参构造器，创建TreeSet时，仍然是无序的（自然排序）</p>
+</li>
+<li><p>使用TreeSet提供的构造器，可以传入一个比较器（Comparator接口）实现排序</p>
+<img src=".\images\image-20220804104046201.png" alt="image-20220804104046201" style="zoom:33%;" />
+</li>
+<li><p>构造器传入的Comparator对象，赋给了TreeSet底层的TreeMap属性this.comparator</p>
+</li>
+<li><p>在调用treeSet.add(“”)底层会执行【cpr即是我们传入的Comparator】</p>
+<p>TreeMap的put方法</p>
+<img src=".\images\image-20220804104444658.png" alt="image-20220804104444658" style="zoom:50%;" /></li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="六、Map接口"><a href="#六、Map接口" class="headerlink" title="六、Map接口"></a>六、Map接口</h2><h3 id="1-双列集合框架结构"><a href="#1-双列集合框架结构" class="headerlink" title="1.双列集合框架结构"></a>1.双列集合框架结构</h3><ul>
+<li>Map接口的常用实现类：HashMap、TreeMap、LinkedHashMap和Properties。其中，HashMap是Map接口使用频率最高的实现类</li>
+</ul>
+<img src=".\images\image-20220804105843887.png" alt="image-20220804105843887" style="zoom:50%;" />
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">|----Map:双列数据，存储key-value对的数据   ---类似于高中的函数：y = f(x)</span><br><span class="line">     |----HashMap:作为Map的主要实现类；线程不安全的，效率高；存储<span class="literal">null</span>的key和value</span><br><span class="line">          |----LinkedHashMap:保证在遍历map元素时，可以照添加的顺序实现遍历。</span><br><span class="line">                    原因：在原的HashMap底层结构基础上，添加了一对指针，指向前一个和后一个元素。</span><br><span class="line">                    对于频繁的遍历操作，此类执行效率高于HashMap。</span><br><span class="line">     |----TreeMap:保证照添加的key-value对进行排序，实现排序遍历。此时考虑key的自然排序或定制排序</span><br><span class="line">                      底层使用红黑树</span><br><span class="line">     |----Hashtable:作为古老的实现类；线程安全的，效率低；不能存储<span class="literal">null</span>的key和value</span><br><span class="line">          |----Properties:常用来处理配置文件。key和value都是String类型</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">HashMap的底层： 数组+链表  （JDK <span class="number">7.0</span>及之前)</span><br><span class="line">               数组+链表+红黑树 （JDK <span class="number">8.0</span>以后)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-存储结构的理解"><a href="#2-存储结构的理解" class="headerlink" title="2.存储结构的理解"></a>2.存储结构的理解</h3><p>概念：Map接口提供了通过键快速获取、删除和更新键&#x2F;值对的功能。Map(映射表)将键和值保存。一个键和它的对应值构成一个条目并保存在映射表中：【键值对 key-value –&gt; Entry对象】。</p>
+<ul>
+<li>键值联系：键的作用类似索引，在List中，索引是整数；而在Map中，键可以是任意类型的对象，映射表中不能有重复的键，每个键都对应一个值。</li>
+<li>Map中的**<code>key</code><strong>（常用String类）用</strong><code>Set</code><strong>存放，无序的，</strong>不允许重复**，须重写<code>hashCode()</code>和<code>equals()</code>方法</li>
+<li>Map中的**<code>values</code><strong>用</strong><code>Collection</code><strong>存放，无序的，</strong>允许重复**，value所在的类要重写<code>equals()</code></li>
+</ul>
+<img src=".\images\image-20220804112503221.png" alt="image-20220804112503221" style="zoom:50%;" />
+
+<h3 id="3-常用方法-1"><a href="#3-常用方法-1" class="headerlink" title="3.常用方法"></a>3.常用方法</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1.添加方法</td>
+<td>void put(Object key, Object value)</td>
+<td>将一个条目放入该映射表中</td>
+</tr>
+<tr>
+<td></td>
+<td>void putAll(Map m)</td>
+<td>将m中的所有key-value对存放到当前map中</td>
+</tr>
+<tr>
+<td>2.包含方法</td>
+<td>boolean containsKey(Object key)</td>
+<td>如果该映射表中包含了指定键的条目，则返回true</td>
+</tr>
+<tr>
+<td></td>
+<td>boolean containsValue(Object value)</td>
+<td>如果该映射表中将一个或者多个键映射到指定值，则返回true</td>
+</tr>
+<tr>
+<td>3.获取方法</td>
+<td>Object get(object key)</td>
+<td>返回该映射表中指定键对应的值</td>
+</tr>
+<tr>
+<td>4.删除方法</td>
+<td>public V remove(Object key)</td>
+<td>删除一个k-v，返回删除的node结点</td>
+</tr>
+<tr>
+<td>5.元视图操作方法</td>
+<td>Set keySet()</td>
+<td>返回所有key构成的Set集合</td>
+</tr>
+<tr>
+<td></td>
+<td>Collection values(）</td>
+<td>返回所有value构成的Collection集合</td>
+</tr>
+<tr>
+<td></td>
+<td>Set&lt;Map.Entry&lt;Key, value&gt;&gt; entrySet()</td>
+<td>返回所有key-value对构成的Set集合</td>
+</tr>
+<tr>
+<td>6.其他方法</td>
+<td>int size()</td>
+<td>返回map中key-value对的个数</td>
+</tr>
+<tr>
+<td></td>
+<td>boolean isEmpty()</td>
+<td>判断当前map是否为空</td>
+</tr>
+<tr>
+<td></td>
+<td>boolean equals(Object obj)</td>
+<td>判断当前map和参数对象obj是否相等</td>
+</tr>
+</tbody></table>
+<h3 id="4-常用实现类-1"><a href="#4-常用实现类-1" class="headerlink" title="4.常用实现类"></a>4.常用实现类</h3><h4 id="HashMap集合"><a href="#HashMap集合" class="headerlink" title="HashMap集合"></a>HashMap集合</h4><ul>
+<li><p>概念：是Map接口的一个实现类，它存储的每一个元素都是键值对<code>&lt;key,value&gt;</code></p>
+<ul>
+<li><p><strong>键和值均可以是任意类型且都允许为空</strong>，但最多只允许一条记录的键为null</p>
+</li>
+<li><p>所有的<strong>key</strong>构成的集合是<strong>Set：无序的、不可重复的</strong>。所以，key所在的类要重写equals()和 hashCode()</p>
+</li>
+<li><p>所有的<strong>value</strong>构成的集合是<strong>Collection：无序的、可以重复的</strong>。所以，value所在的类要重写:equals()</p>
+</li>
+<li><p>一个key-value构成一个entry</p>
+</li>
+<li><p>所有的entry构成的集合是Set：无序的、不可重复的</p>
+</li>
+</ul>
+</li>
+<li><p>判断相等</p>
+<ul>
+<li>HashMap判断两个key相等的标准是：两个key通过 <code>equals()</code> 方法返回true，hashCode值也相等。</li>
+<li>HashMap判断两个value相等的标准是：两个value通过 <code>equals()</code> 方法返回true.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>源码理解❤</strong></p>
+<ol>
+<li>对于键值对, HashMap内部会将其封装成一个对应的 HashMap$Node对象，即Node对象是键值对的组织形式。</li>
+<li>Entry是Node的父类</li>
+<li>当put的时候，存在相同的key，则覆盖Map中的该key</li>
+<li>Entry&lt;Key,Value&gt;对象的<code>getKey()</code>方法返回键，<code>getValue()</code>方返回值。</li>
+</ol>
+<p>原理</p>
+<ul>
+<li>对于每个Entry对象而言，JVM都会为其生成一个hashcode值。HashMap在存储键值对Entry的时候，会根据Key的hashcode值，以某种映射关系，决定应当将这对键值对Entry存储在HashMap中的什么位置上；当通过Key值取数据的时候，根据Key值的hashcode和内部映射条件，直接定位到Key对应的Value值存放在什么位置，可以非常高效地将Value值取出。</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>HashMap源码详解</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/66974753">HashMap源码详解 - 知乎 (zhihu.com)</a></p>
+</li>
+</ul>
+<h5 id="JDK-7-0底层实现原理"><a href="#JDK-7-0底层实现原理" class="headerlink" title="JDK 7.0底层实现原理"></a>JDK 7.0底层实现原理</h5><ul>
+<li><p>JDK 7.0及以前的版本：HashMap是数组+链表结构（地址链表法）</p>
+<img src=".\images\image-20220804114521233.png" alt="image-20220804114521233" style="zoom:50%;" />
+</li>
+<li><p>对象创建和添加过程</p>
+<ul>
+<li><p><code>HashMap map = new HashMap()</code>：在实例化以后，底层创建了长度是16的一维数组 <code>Entry[] table</code></p>
+</li>
+<li><p><code>map.put(key1,value1)</code></p>
+<ul>
+<li><p>首先，调用key1所在类的 <code>hashCode()</code> 计算key1哈希值，此哈希值经过某种算法计算以后，得到在Entry数组中的存放位置。</p>
+</li>
+<li><p>如果此位置上的数据为空，此时的key1-value1添加成功。 —-情况1</p>
+</li>
+<li><p>如果此位置上的数据不为空，(意味着此位置上存在一个或多个数据(以链表形式存在)),比较key1和已经存在的一个或多个数据的哈希值：</p>
+<ul>
+<li><p>如果key1的哈希值与已经存在的数据的哈希值都不相同，此时key1-value1添加成功。—-情况2</p>
+</li>
+<li><p>如果key1的哈希值和已经存在的某一个数据(key2-value2)的哈希值相同，继续比较：调用key1所在类的equals(key2)方法，比较：</p>
+<ul>
+<li>如果 <code>equals()</code> 返回false:此时key1-value1添加成功。—-情况3</li>
+<li>如果 <code>equals()</code> 返回true:使用value1替换value2。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>补充：关于情况2和情况3：此时key1-value1和原来的数据以链表的方式存储。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>扩容</p>
+<blockquote>
+<p>当HashMap中的元素越来越多的时候，hash冲突的几率也就越来越高，因为数组的长度是固定的，所以为了提高查询的效率，就要对HashMap的数组进行扩容，而在HashMap数组扩容之后，最消耗性能的点就出现了：原数组中的数据必须重新计算其在新数组中的位置，并放进去，这就是 resize。</p>
+</blockquote>
+</li>
+<li><p>扩容时机</p>
+<blockquote>
+<p>当HashMap中的元素个数超过数组大小（数组总大小 length，不是数组中个数）* loadFactor时，就会进行数组扩容，loadFactor的默认值(<code>DEFAULT_LOAD_ FACTOR</code>)为0.75，这是一个折中的取值。也就是说，默认情况下，数组大小(<code>DEFAULT INITIAL CAPACITY</code>)为16，那么当 HashMap中元素个数超过16 * 0.75&#x3D;12（这个值就是代码中的 threshold值，也叫做临界值）的时候，就把数组的大小扩展为2 * 16&#x3D;32，即扩大一倍，然后重新计算每个元素在数组中的位置，而这是一个非常消耗性能的操作，所以如果我们已经预知 HashMap中元素的个数，那么预设元素的个数能够有效的提高HashMap的性能。</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="JDK-8-0底层实现原理"><a href="#JDK-8-0底层实现原理" class="headerlink" title="JDK 8.0底层实现原理"></a>JDK 8.0底层实现原理</h5><ul>
+<li><p>JDK 8.0的版本：数组+链表+红黑树的组合</p>
+<img src=".\images\image-20220804115424796.png" alt="image-20220804115424796" style="zoom:50%;" />
+</li>
+<li><p>HashMap添加元素的过程</p>
+<ul>
+<li><p>当实例化一个HashMap时，会初始化initialCapacity和loadFactor，在put第一对映射关系时，系统会创建一个长度为initialCapacity的Node数组，这个长度在哈希表中被称为容量（Capacity），在这个数组中可以存放元素的位置我们称之为“桶”（bucket），每个bucket都有自己的索引，系统可以根据索引快速的查找bucket中的元素。</p>
+</li>
+<li><p>每个bucket中存储一个元素，即一个Node对象，但每一个Noe对象可以带个引用变量next，用于指向下一个元素，因此，在一个桶中，就有可能生成一个Node链。也可能是一个TreeNode对象，每一个TreeNode对象可以有两个叶子结点left和right，因此，在一个桶中，就有可能生成一个TreeNode树。而新添加的元素作为链表的last，或树的叶子结点。</p>
+</li>
+</ul>
+</li>
+<li><p>HashMap的扩容机制</p>
+<ul>
+<li><p>当HashMap中的其中一个链的对象个数没有达到8个和JDK 7.0以前的扩容方式一样。</p>
+</li>
+<li><p>当HashMap中的其中一个链的对象个数如果达到了8个，此时如果 capacity没有达到64，那么HashMap会先扩容解决，如果已经达到了64，那么这个链会变成树，结点类型由Node变成TreeNode类型。当然，如果当映射关系被移除后，下次resize方法时判断树的结点个数低于6个，也会把树再转为链表。</p>
+</li>
+</ul>
+</li>
+<li><p>JDK 8.0与JDK 7.0中HashMap底层的变化</p>
+<ol>
+<li><p><code>new HashMap()</code>：底层没有创建一个长度为16的数组</p>
+</li>
+<li><p>JDK 8.0底层的数组是：<code>Node[]</code>，而非 <code>Entry[]</code></p>
+</li>
+<li><p>首次调用put()方法时，底层创建长度为16的数组</p>
+</li>
+<li><p>JDK 7.0底层结构只有：数组+链表。JDK 8.0底层结构：数组+链表+红黑树。</p>
+<ul>
+<li>形成链表时，七上八下（jdk7:新的元素指向旧的元素【头插法】。jdk8：旧的元素指向新的元素【尾插法】）</li>
+<li>当数组的某一个索引位置上的元素以链表形式存在的数据个数 &gt; 8 且当前数组的长度 &gt; 64时，此时此索引位置上的所数据改为使用红黑树存储。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h5 id="HashMap底层属性"><a href="#HashMap底层属性" class="headerlink" title="HashMap底层属性"></a>HashMap底层属性</h5><table>
+<thead>
+<tr>
+<th>常量名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>DEFAULT_INITIAL_CAPACITY</code></strong></td>
+<td>HashMap的默认<strong>容量</strong>：16</td>
+</tr>
+<tr>
+<td><strong><code>MAXIMUM_CAPACITY</code></strong></td>
+<td>HashMap的最大支持容量:2^30</td>
+</tr>
+<tr>
+<td><strong><code>DEFAULT_LOAD_FACTOR</code></strong></td>
+<td>HashMap的默认加载因子，0.75</td>
+</tr>
+<tr>
+<td><strong><code>TREEIFY_THRESHOLD</code></strong></td>
+<td>Bucket中链表长度大于该默认值，转化为红黑树，JDK 8.0引入，默认为8</td>
+</tr>
+<tr>
+<td><strong><code>UNTREEIFY_THRESHOLD</code></strong></td>
+<td>Bucket中红黑树存储的Node小于该默认值，转化为链表，JDK 8.0引入，默认为6</td>
+</tr>
+<tr>
+<td><strong><code>MIN_TREEIFY_CAPACITY</code></strong></td>
+<td>桶中的Node被树化时最小的hash表容量。(当桶中Node的数量大到需要变红黑树时，若hash表容量小于 <code>MIN_TREEIFY_CAPACITY</code>时，此时应执行resize扩容操作这个<code>MIN_TREEIFY_CAPACITY</code>的值至少是 <code>TREEIFY_THRESHOLD</code>的4倍。) 默认为64</td>
+</tr>
+<tr>
+<td><strong><code>table</code></strong></td>
+<td>存储元素的数组，总是2的n次幂</td>
+</tr>
+<tr>
+<td><strong><code>entry Set</code></strong></td>
+<td>存储具体元素的集合</td>
+</tr>
+<tr>
+<td><strong><code>size</code></strong></td>
+<td>HashMap中存储的键值对的数量</td>
+</tr>
+<tr>
+<td><strong><code>modCount</code></strong></td>
+<td>HashMap扩容和结构改变的次数。</td>
+</tr>
+<tr>
+<td><strong><code>threshold</code></strong></td>
+<td>扩容的临界值&#x3D;容量*填充因子</td>
+</tr>
+<tr>
+<td><strong><code>load Factor</code></strong></td>
+<td>填充因子</td>
+</tr>
+</tbody></table>
+<h4 id="ConcurrentHashMap集合"><a href="#ConcurrentHashMap集合" class="headerlink" title="ConcurrentHashMap集合"></a>ConcurrentHashMap集合</h4><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1873182">ConcurrentHashMap（JDK8） - 腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+<h4 id="LinkedHashMap集合"><a href="#LinkedHashMap集合" class="headerlink" title="LinkedHashMap集合"></a>LinkedHashMap集合</h4><ul>
+<li><p>LinkedHashMap底层使用的结构与HashMap相同，因为LinkedHashMap继承于HashMap.</p>
+</li>
+<li><p>区别就在于：LinkedHashMap内部提供了Entry，替换HashMap中的Node.</p>
+</li>
+<li><p>与LinkedhashSet类似，LinkedHashMap可以维护Map的迭代顺序：<strong>迭代顺序与Key-value对的插入顺序一致</strong></p>
+</li>
+</ul>
+<h4 id="TreeMap集合"><a href="#TreeMap集合" class="headerlink" title="TreeMap集合"></a>TreeMap集合</h4><ul>
+<li><p>TreeMap存储Key-Value对时，需要根据key-value对进行排序。TreeMap可以保证所有的 Key-Value对处于有序状态。</p>
+</li>
+<li><p>TreeMap底层使用红黑树结构存储数据</p>
+</li>
+<li><p>TreeMap的Key的排序：</p>
+<ul>
+<li><p>自然排序：TreeMap的所有的Key必须实现Comparable接口，而且所有的Key应该是同一个类的对象，否则将会抛出ClasssCastEXception()</p>
+</li>
+<li><p>定制排序：创建TreeMap时，传入一个Comparator对象，该对象负责对TreeMap中的所有key进行排序。此时不需要Map的Key实现Comparable接口</p>
+</li>
+</ul>
+</li>
+<li><p>TreeMap判断两个key相等的标准：两个key通过 compareTo()方法或者compare()方法返回0</p>
+</li>
+</ul>
+<h4 id="Hashtable集合"><a href="#Hashtable集合" class="headerlink" title="Hashtable集合"></a>Hashtable集合</h4><ul>
+<li><p>Hashtable是个古老的Map实现类，JDK1.0就提供了。不同于 HashMap，Hashtable是<strong>线程安全</strong>的。</p>
+</li>
+<li><p>Hashtable实现原理和HashMap相同，功能相同。底层都使用哈希表结构，查询速度快，很多情况下可以互用</p>
+</li>
+<li><p>与HashMap不同，Hashtable<strong>不允许使用null作为key和value</strong></p>
+</li>
+<li><p>与HashMap一样，Hashtable也不能保证其中Key-value对的顺序</p>
+</li>
+<li><p>Hashtable判断两个key相等、两个value相等的标准，与HashMap一致</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>源码解析❤</strong></p>
+<ol>
+<li><p>底层有数组 Hashtable$Entry[] 初始化大小为11</p>
+</li>
+<li><p>临界值threshold为8 &#x3D; 11 * 0.75</p>
+</li>
+<li><p>扩容：按照自己的扩容机制进行扩容</p>
+</li>
+<li><p>添加方法：<code>addEntry(hash, key, value, index);</code>添加K-V封装到Entry中</p>
+</li>
+<li><p>当<code>if (count &gt;= threshold)</code>满足时，就进行扩容</p>
+<p>按照<code>int newCapacity = (oldCapacity &lt;&lt; 1) + 1;</code>【2倍+1】大小进行扩容</p>
+</li>
+</ol>
+</blockquote>
+<ul>
+<li><p>HashMap与HashTable对比</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>版本</th>
+<th>线程安全（同步）</th>
+<th>效率</th>
+<th>允许nul键null值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HashMap</td>
+<td>1.2</td>
+<td>不安全</td>
+<td>高</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>Hashtable</td>
+<td>1.0</td>
+<td>安全</td>
+<td>较低</td>
+<td>不可以</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="Properties集合"><a href="#Properties集合" class="headerlink" title="Properties集合"></a>Properties集合</h4><ul>
+<li><p>概念</p>
+<ul>
+<li>由于属性文件里的key、value都是字符串类型，所以<strong>Properties里的key和value都是字符串类型</strong></li>
+<li>Properties类继承自Hashtable类并且实现了Map接口，也是使用一种键值对的形式来保存数据。</li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li><code>setProperty(String a ,String b)</code>  —  往集合里添加对象</li>
+<li><code>stringPropertyNames()</code>  —  获取集合的所有键的集合</li>
+<li><code>getProperty(key)</code>  —  获取集合中指定key的 value值</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>源码解析❤</strong></p>
+<ol>
+<li>Properties类继承自Hashtable类并且实现了Map接口</li>
+<li>可以通过k-v存放数据，且k与v不能为空</li>
+</ol>
+</blockquote>
+<h3 id="5-面试题"><a href="#5-面试题" class="headerlink" title="5.面试题"></a>5.面试题</h3><ol>
+<li><p>HashMap的底层实现原理？</p>
+</li>
+<li><p>HashMap 和 Hashtable的异同？</p>
+</li>
+<li><p>CurrentHashMap 与 Hashtable的异同？</p>
+</li>
+<li><p>负载因子值的大小，对HashMap的影响？</p>
+<ul>
+<li>负载因子的大小决定了HashMap的数据密度。</li>
+<li>负载因子越大密度越大，发生碰撞的几率越高，数组中的链表越容易长，造成査询或插入时的比较次数增多，性能会下降</li>
+<li>负载因子越小，就越容易触发扩容，数据密度也越小，意味着发生碰撞的几率越小，数组中的链表也就越短，查询和插入时比较的次数也越小，性能会更高。但是会浪费一定的内容空间。而且经常扩容也会影响性能，建议初始化预设大一点的空间</li>
+<li>按照其他语言的参考及研究经验，会考虑将负载因子设置为0.7~0.75，此时平均检索长度接近于常数。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="七、Collection工具类的使用"><a href="#七、Collection工具类的使用" class="headerlink" title="七、Collection工具类的使用"></a>七、Collection工具类的使用</h2><h3 id="1-作用"><a href="#1-作用" class="headerlink" title="1.作用"></a>1.作用</h3><ul>
+<li><p>Collections是一个操作Set、List和Map等集合的工具类</p>
+</li>
+<li><p>Collections中提供了一系列静态的方法对集合元素进行排序、査询和修改等操作，还提供了对集合对象设置不可变、对集合对象实现同步控制等方法</p>
+</li>
+</ul>
+<h3 id="2-常用方法-1"><a href="#2-常用方法-1" class="headerlink" title="2.常用方法"></a>2.常用方法</h3><h4 id="排序操作"><a href="#排序操作" class="headerlink" title="排序操作"></a>排序操作</h4><ul>
+<li><strong><code>public static void reverse(List&lt;?&gt; list)</code></strong>  —  <strong>反转</strong>集合中元素的顺序</li>
+<li><strong><code>public static void shuffle(List&lt;?&gt; list)</code></strong>  —  <strong>随机重置</strong>集合元素的顺序</li>
+<li><strong><code>public static void sort(List&lt;T&gt; list)</code></strong>  —  <strong>升序</strong>排序（元素类型必须实现Comparable接口）</li>
+<li><strong><code>public static void sort(List list, Comparator c)</code></strong>  —  根据指定 Comparator产生的顺序对List集合的元素进行<strong>排序</strong></li>
+<li><strong><code>public static void swap(List list, int i, int j)</code></strong>  —  将指定list集合中i处元素和j处元素进行<strong>交换</strong></li>
+</ul>
+<h4 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h4><ul>
+<li><strong><code>public static int binary search(list list, object key)</code></strong>  —  使用<strong>二分搜索法</strong>搜索指定List集合，以获得指定对象在List集合中的索引，List中的元素必须已经处于有序状态，返回查找到的索引值，查不到返回-1</li>
+<li><strong><code>public static object max(Collection coll)</code></strong>  —  根据元素的自然排序，返回给定集合中的<strong>最大元素</strong></li>
+<li><strong><code>public static object min( collection coll)</code></strong>  —  根据元素的自然排序，返回给定集合中的<strong>最小元素</strong></li>
+<li><strong><code>public static void fill(list list, object obj)</code></strong>  —  使用指定元素的obj<strong>替换</strong>指定List集合中所有元素</li>
+<li><strong><code>public static int frequency(collection c, object o)</code></strong>  —  返回指定元素中<strong>等于指定对象</strong>的<strong>元素数量</strong></li>
+<li><strong><code>public static int indexofsubList(List source, List target)</code></strong>  —  返回List对象在母List对象中<strong>第一次出现</strong>的位置索引，如果母List中没有出现这样的子List则返回-1</li>
+<li><strong><code>public static int lastIndexofSubList(List source, List target)</code></strong>  —  返回List对象在母List对象中<strong>最后一次出现</strong>的位置索引；如果母List中没有出现这样的子List则返回-1</li>
+<li><strong><code>public static boolean replaceAll( List list, Object oldVal, Object newVal)</code></strong>  —  使用一个新值 newVal替换List对象所有旧值oldval</li>
+</ul>
+<h4 id="集合的交、并、差运算"><a href="#集合的交、并、差运算" class="headerlink" title="集合的交、并、差运算"></a>集合的交、并、差运算</h4><ul>
+<li><strong><code>boolean addAll(Collection c)</code></strong>  —  将指定集合c中的所有元素<strong>添加</strong>到当前集合中，使得当前集合成为两个集合的<strong>并集</strong></li>
+<li><strong><code>boolean removeAll(Collection c)</code></strong>  —  <strong>刪除</strong>当前集合中包含集合c的所有元素，使得当前集合成为两个集合的<strong>差集</strong></li>
+<li><strong><code>boolean containsAll( Collection c)</code></strong>  —  <strong>判断</strong>当前集合<strong>是否含有集合c中的所有元素</strong>，如果母List中没有出现这样的子List则返回-1</li>
+<li><strong><code>boolean retainAll(Collection c)</code></strong>  —  当前集合与集合c求<strong>交运算</strong>，使得当前集合成为两个集合的<strong>交集</strong></li>
+</ul>
+<h4 id="同步控制"><a href="#同步控制" class="headerlink" title="同步控制"></a>同步控制</h4><ul>
+<li><p>Collections 类中提供了多个 <code>synchronizedXxx()</code> 方法，该方法可使将指定集合包装成线程同步的集合，从而可以解决多线程并发访问集合时的线程安全问题</p>
+<img src=".\images\image-20220804145806572.png" alt="image-20220804145806572" style="zoom:50%;" /></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Li zm</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/10/23/%E9%9B%86%E5%90%88%E7%B1%BB/">http://example.com/2022/10/23/%E9%9B%86%E5%90%88%E7%B1%BB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Toys</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/10/23/testhh/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">testhh</div></div></a></div><div class="next-post pull-right"><a href="/2022/10/23/javascript/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">javascript</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Li zm</div><div class="author-info__description">Welcome To My Blob</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/mark-lzm" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2218692345@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">集合类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%9B%86%E5%90%88%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.</span> <span class="toc-text">一、集合基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%9B%86%E5%90%88%E4%B8%8E%E6%95%B0%E7%BB%84%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.集合与数组存储数据概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%95%B0%E7%BB%84%E4%B8%8E%E9%9B%86%E5%90%88%E5%AD%98%E5%82%A8%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.数组与集合存储的比较</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Collection%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.2.</span> <span class="toc-text">二、Collection接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8D%95%E5%88%97%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.单列集合框架结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Collection%E6%8E%A5%E5%8F%A3%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.Collection接口常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Collection%E9%9B%86%E5%90%88%E4%B8%8E%E6%95%B0%E7%BB%84%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.Collection集合与数组间的转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Iterator%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">三、Iterator迭代器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Iterator%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.Iterator迭代器循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-forEach%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.forEach循环</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81List%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.4.</span> <span class="toc-text">四、List接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AD%98%E5%82%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%89%B9%E7%82%B9"><span class="toc-number">1.4.1.</span> <span class="toc-text">1.存储的数据特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B8%B8%E7%94%A8%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.常用实现类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ArrayList%E9%9B%86%E5%90%88"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">ArrayList集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LinkedList%E9%9B%86%E5%90%88"><span class="toc-number">1.4.3.2.</span> <span class="toc-text">LinkedList集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vector%E9%9B%86%E5%90%88"><span class="toc-number">1.4.3.3.</span> <span class="toc-text">Vector集合</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.面试题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81Set%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.5.</span> <span class="toc-text">五、Set接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AD%98%E5%82%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%89%B9%E7%82%B9-1"><span class="toc-number">1.5.1.</span> <span class="toc-text">1.存储的数据特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%85%83%E7%B4%A0%E6%B7%BB%E5%8A%A0%E8%BF%87%E7%A8%8B%EF%BC%9A-%E4%BB%A5HashSet%E4%B8%BA%E4%BE%8B"><span class="toc-number">1.5.2.</span> <span class="toc-text">2.元素添加过程：(以HashSet为例)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.3.</span> <span class="toc-text">3.常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%B8%B8%E7%94%A8%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="toc-number">1.5.4.</span> <span class="toc-text">4.常用实现类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HashSet%E9%9B%86%E5%90%88"><span class="toc-number">1.5.4.1.</span> <span class="toc-text">HashSet集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LinkedHashSet%E9%9B%86%E5%90%88"><span class="toc-number">1.5.4.2.</span> <span class="toc-text">LinkedHashSet集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TreeSet%E9%9B%86%E5%90%88"><span class="toc-number">1.5.4.3.</span> <span class="toc-text">TreeSet集合</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81Map%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.6.</span> <span class="toc-text">六、Map接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8F%8C%E5%88%97%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E7%BB%93%E6%9E%84"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.双列集合框架结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">1.6.2.</span> <span class="toc-text">2.存储结构的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-1"><span class="toc-number">1.6.3.</span> <span class="toc-text">3.常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%B8%B8%E7%94%A8%E5%AE%9E%E7%8E%B0%E7%B1%BB-1"><span class="toc-number">1.6.4.</span> <span class="toc-text">4.常用实现类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HashMap%E9%9B%86%E5%90%88"><span class="toc-number">1.6.4.1.</span> <span class="toc-text">HashMap集合</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#JDK-7-0%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">1.6.4.1.1.</span> <span class="toc-text">JDK 7.0底层实现原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JDK-8-0%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">1.6.4.1.2.</span> <span class="toc-text">JDK 8.0底层实现原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HashMap%E5%BA%95%E5%B1%82%E5%B1%9E%E6%80%A7"><span class="toc-number">1.6.4.1.3.</span> <span class="toc-text">HashMap底层属性</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ConcurrentHashMap%E9%9B%86%E5%90%88"><span class="toc-number">1.6.4.2.</span> <span class="toc-text">ConcurrentHashMap集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LinkedHashMap%E9%9B%86%E5%90%88"><span class="toc-number">1.6.4.3.</span> <span class="toc-text">LinkedHashMap集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TreeMap%E9%9B%86%E5%90%88"><span class="toc-number">1.6.4.4.</span> <span class="toc-text">TreeMap集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hashtable%E9%9B%86%E5%90%88"><span class="toc-number">1.6.4.5.</span> <span class="toc-text">Hashtable集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Properties%E9%9B%86%E5%90%88"><span class="toc-number">1.6.4.6.</span> <span class="toc-text">Properties集合</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">1.6.5.</span> <span class="toc-text">5.面试题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81Collection%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.7.</span> <span class="toc-text">七、Collection工具类的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BD%9C%E7%94%A8"><span class="toc-number">1.7.1.</span> <span class="toc-text">1.作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-1"><span class="toc-number">1.7.2.</span> <span class="toc-text">2.常用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E6%93%8D%E4%BD%9C"><span class="toc-number">1.7.2.1.</span> <span class="toc-text">排序操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">1.7.2.2.</span> <span class="toc-text">常用操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E4%BA%A4%E3%80%81%E5%B9%B6%E3%80%81%E5%B7%AE%E8%BF%90%E7%AE%97"><span class="toc-number">1.7.2.3.</span> <span class="toc-text">集合的交、并、差运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E6%8E%A7%E5%88%B6"><span class="toc-number">1.7.2.4.</span> <span class="toc-text">同步控制</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/10/23/testhh/" title="testhh"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="testhh"/></a><div class="content"><a class="title" href="/2022/10/23/testhh/" title="testhh">testhh</a><time datetime="2022-10-23T12:48:47.000Z" title="发表于 2022-10-23 20:48:47">2022-10-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/23/%E9%9B%86%E5%90%88%E7%B1%BB/" title="集合类"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="集合类"/></a><div class="content"><a class="title" href="/2022/10/23/%E9%9B%86%E5%90%88%E7%B1%BB/" title="集合类">集合类</a><time datetime="2022-10-23T11:33:18.000Z" title="发表于 2022-10-23 19:33:18">2022-10-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/23/javascript/" title="javascript"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="javascript"/></a><div class="content"><a class="title" href="/2022/10/23/javascript/" title="javascript">javascript</a><time datetime="2022-10-23T11:31:54.000Z" title="发表于 2022-10-23 19:31:54">2022-10-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/23/hahaaaaa/" title="hahaaaaa"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hahaaaaa"/></a><div class="content"><a class="title" href="/2022/10/23/hahaaaaa/" title="hahaaaaa">hahaaaaa</a><time datetime="2022-10-23T10:21:06.000Z" title="发表于 2022-10-23 18:21:06">2022-10-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/23/1-Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" title="无题"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2022/10/23/1-Java%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/" title="无题">无题</a><time datetime="2022-10-23T09:44:05.805Z" title="发表于 2022-10-23 17:44:05">2022-10-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By Li zm</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="http://litchi.com/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
