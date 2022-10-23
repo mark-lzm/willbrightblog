@@ -107,4 +107,5 @@ theme: butterfly
 deploy:
   type: git
   repo: https://github.com/mark-lzm/mark-lzm.github.io.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  # repo: https://gitee.com/Mark_zhiming/mark_zhiming.gitee.io.git
   branch: master
