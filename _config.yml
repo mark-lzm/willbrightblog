@@ -100,12 +100,13 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: butterfly
+theme: butterflythemetest
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/mark-lzm/mark-lzm.github.io.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  # repo: https://github.com/mark-lzm/mark-lzm.github.io.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  repo: https://github.com/mark-lzm/hexoblog.git
   # repo: https://gitee.com/Mark_zhiming/mark_zhiming.gitee.io.git
   branch: master
