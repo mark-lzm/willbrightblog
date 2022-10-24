@@ -1,7 +1,10 @@
 ---
 title: 第1章-JVM和Java体系架构
 date: 2022-10-23 21:44:21
+categories:
+- [JVM, 1.内存与垃圾回收篇章]
 tags:
+- JVM
 ---
 # 第1章-JVM和Java体系架构
 
