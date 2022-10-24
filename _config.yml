@@ -106,7 +106,7 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  # repo: https://github.com/mark-lzm/mark-lzm.github.io.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
-  repo: https://github.com/mark-lzm/hexoblog.git
-  # repo: https://gitee.com/Mark_zhiming/mark_zhiming.gitee.io.git
+  # repo: https://github.com/mark-lzm/mark-lzm.github.io.git # github page
+  repo: https://github.com/mark-lzm/hexoblog.git # vercel
+  # repo: https://gitee.com/Mark_zhiming/mark_zhiming.gitee.io.git #gitee
   branch: master
