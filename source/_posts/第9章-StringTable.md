@@ -5,6 +5,7 @@ categories:
 - [JVM, 1.内存与垃圾回收篇章]
 tags:
 - JVM
+cover: JVM.jpg
 ---
 # StringTable（字符串常量池）
 
