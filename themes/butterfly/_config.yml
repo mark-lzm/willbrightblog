@@ -48,7 +48,7 @@ copy:
 social:
   # fab fa-github: https://github.com/xxxxx || Github
   # fas fa-envelope: mailto:xxxxxx@gmail.com || Email
-  fab fa-github: https://github.com/mark-lzm || Github
+  fab fa-github: https://github.com/mark-lzm/hexoblog || Github
   fas fa-envelope: mailto:2218692345@qq.com || Email
 # search (搜索)
 # see https://butterfly.js.org/posts/ceeb73f/#搜索系統
