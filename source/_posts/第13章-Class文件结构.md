@@ -1,16 +1,18 @@
 ---
 title: 第13章-Class文件结构
-date: 2022-10-26 00:04:24
 categories:
-- [JVM, 2.字节码与类加载篇]
+  - - JVM
+    - 2.字节码与类加载篇
 keywords:
-- JVM
+  - JVM
 tags:
-- JVM
-cover: JVM.jpg
+  - JVM
+cover: /images/JVM.jpg
 copyright_author: Li zm
-copyright_author_href: https://blog.willbright.cn
-copyright_url: https://blog.willbright.cn/2022/10/23/%E7%AC%AC1%E7%AB%A0-JVM%E5%92%8CJava%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84/
+copyright_author_href: 'https://blog.willbright.cn'
+copyright_url: 'https://blog.willbright.cn/post/de3716.html'
+abbrlink: e91c6642
+date: 2022-10-26 00:04:24
 ---
 
 # Class文件结构
@@ -36,8 +38,8 @@ copyright_url: https://blog.willbright.cn/2022/10/23/%E7%AC%AC1%E7%AB%A0-JVM%E5%
 > 官方地址：https://docs.oracle.com/javase/specs/index.html
 
 - 所有的JVM全部遵守Java虚拟机规范，也就是说所有的JVM环境都是一样的，这样一来字节码文件可以在各种JVM上运行。
-
-<img src=".\image-20220615222129347.png" alt="image-20220615222129347" style="zoom:33%;" />
+![image-20220615222129347](.\image-20220615222129347.png)
+<!-- (.\image-20220615222129347.png) -->
 
 3. 想要让一个Java程序正确地运行在JVM中，Java源码就必须要被编译为符合JVM规范的字节码。
    - 前端编译器的主要任务就是负责将符合Java语法规范的Java代码转换为符合JVM规范的字节码文件。
@@ -235,7 +237,7 @@ Oracle的JDK软件包括两部分内容：
 
   - 方式三：使用IDEA插件：jclasslib或jclasslib bytecode viewer客户端工具（可视化更好）
 
-    <img src=".\image-20220616110714160.png" alt="image-20220616110714160" style="zoom:50%;" />
+    (.\image-20220616110714160.png)
 
 ## 三、Class文件结构
 
@@ -286,7 +288,7 @@ public class Demo {
   - 方法表集合
   - 属性表集合
 
-  <img src=".\image-20220616113449686.png" alt="image-20220616113449686" style="zoom:67%;" />
+  ![image-20220616113449686](.\image-20220616113449686.png)
 
 | 类型           | 名称                | 说明                   | 长度    | 数量                  |
 | -------------- | ------------------- | ---------------------- | ------- | --------------------- |
@@ -353,7 +355,7 @@ public class Demo {
 - 常量池是Class文件中内容最为丰富的区域之一。常量池对于Class文件中的字段和方法解析也有着至关重要的作用。
 - 随着Java虚拟机的不断发展，常量池的内容也日渐丰富。可以说，常量池是整个Class文件的基石。
 
-<img src=".\image-20220616141230285.png" alt="image-20220616141230285" style="zoom:40%;" />
+![image-20220616141230285](.\image-20220616141230285.png)
 
 
 
@@ -917,7 +919,7 @@ methods：指向常量池索引集合，它完整描述了每个方法的签名�
 
 - 在命令行中直接输入javap或javap -help可以看到javap的options有如下选项：
 
-  <img src=".\image-20220617094158771.png" alt="image-20220617094158771" style="zoom:50%;" />
+  ![image-20220617094158771](.\image-20220617094158771.png)
 
 > -help --help -?     输出此用法消息
 > -version           版本信息，其实是当前javap所在jdk的版本信息，不是class在哪个jdk下生成的。

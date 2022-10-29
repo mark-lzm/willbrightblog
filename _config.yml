@@ -14,7 +14,12 @@ timezone: 'Asia/Shanghai'
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: http://blog.willbright.cn
-permalink: :year/:month/:day/:title/
+# permalink: :year/:month/:day/:title/
+permalink: posts/:abbrlink.html
+abbrlink:
+    auto_category: 
+    alg: crc32   #算法： crc16(default) and crc32
+    rep: hex     #进制： dec(default) and hex
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -110,3 +115,9 @@ deploy:
   repo: https://github.com/mark-lzm/hexoblog.git # vercel
   # repo: https://gitee.com/Mark_zhiming/mark_zhiming.gitee.io.git #gitee
   branch: master
+
+search:
+  path: search.xml
+  field: post # post:文章范围、page:页面范围、all:覆盖所有
+  content: true # 内容是否包含每一篇文章的全部内容
+  template:  # ./search.xml 指定定制的XML模板

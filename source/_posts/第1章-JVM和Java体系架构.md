@@ -1,16 +1,19 @@
 ---
 title: 第1章-JVM和Java体系架构
-date: 2022-10-23 21:44:21
 categories:
-- [JVM, 1.内存与垃圾回收篇章]
+  - - JVM
+    - 1.内存与垃圾回收篇章
 keywords:
-- JVM
+  - JVM
 tags:
-- JVM
-cover: JVM.jpg
+  - JVM
+cover: /images/JVM.jpg
 copyright_author: Li zm
-copyright_author_href: https://blog.willbright.cn
-copyright_url: https://blog.willbright.cn/2022/10/23/%E7%AC%AC1%E7%AB%A0-JVM%E5%92%8CJava%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84/
+copyright_author_href: 'https://blog.willbright.cn'
+copyright_url: >-
+  https://blog.willbright.cn/2022/10/23/%E7%AC%AC1%E7%AB%A0-JVM%E5%92%8CJava%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84/
+abbrlink: c6c65362
+date: 2022-10-23 21:44:21
 ---
 # 第1章-JVM和Java体系架构
 

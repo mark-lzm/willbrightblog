@@ -1,11 +1,13 @@
 ---
 title: 第9章-StringTable
-date: 2022-10-24 10:56:06
 categories:
-- [JVM, 1.内存与垃圾回收篇章]
+  - - JVM
+    - 1.内存与垃圾回收篇章
 tags:
-- JVM
-cover: JVM.jpg
+  - JVM
+cover: /images/JVM.jpg
+abbrlink: 908bceed
+date: 2022-10-24 10:56:06
 ---
 # StringTable（字符串常量池）
 
