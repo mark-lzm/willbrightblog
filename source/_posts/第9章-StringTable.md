@@ -11,7 +11,6 @@ date: 2022-10-24 10:56:06
 ---
 # StringTable（字符串常量池）
 
-[TOC]
 
 ## String的基本特性
 
@@ -236,7 +235,7 @@ public class StringTest2 {
 
 ![image-20220608224558658](.\image-20220608224558658.png)
 
-<img src=".\image-20220608224806873.png" alt="image-20220608224806873" style="zoom:50%;" />
+![image-20220608224806873](.\image-20220608224806873.png)
 
 ### StringTable 为什么要调整？
 
@@ -324,19 +323,19 @@ public class StringTest4 {
 
 1、程序启动时已经加载了 2095 个字符串常量
 
-<img src=".\image-20220609172550605.png" alt="image-20220609172550605" style="zoom:50%;" />
+![image-20220609172550605](.\image-20220609172550605.png)
 
 2、加载了一个换行符（println），所以多了一个
 
-<img src=".\image-20220609172632680.png" alt="image-20220609172632680" style="zoom:50%;" />
+![image-20220609172632680](.\image-20220609172632680.png)
 
 3、加载了字符串常量 “1”~“10”
 
-<img src=".\image-20220609172836489.png" alt="image-20220609172836489" style="zoom:50%;" />
+![image-20220609172836489](.\image-20220609172836489.png)
 
 4、之后的字符串"1" 到 "10"不会再次加载
 
-<img src=".\image-20220609172939155.png" alt="image-20220609172939155" style="zoom:50%;" />
+![image-20220609172939155](.\image-20220609172939155.png)
 
 ### 举例2
 
@@ -359,7 +358,7 @@ class Memory {
 
 分析运行时内存（foo() 方法是实例方法，其实图中少了一个 this 局部变量）
 
-<img src=".\image-20220609173434918.png" alt="image-20220609173434918" style="zoom:50%;" />
+![image-20220609173434918](.\image-20220609173434918.png)
 
 A string is created in line 7,it goes in the String Pool in the heap space and a reference is created in the foo() stack for it.
 
@@ -416,7 +415,7 @@ public void test1(){
 
 IDEA 反编译 class 文件后，来看这个问题
 
-<img src=".\image-20220609174901102.png" alt="image-20220609174901102" style="zoom:50%;" />
+![image-20220609174901102](.\image-20220609174901102.png)
 
 **2、拼接前后，只要其中有一个是变量，结果就在堆中**
 
@@ -870,11 +869,11 @@ JDK6 ：正常眼光判断即可
 - new String() 即在堆中
 - str.intern() 则把字符串放入常量池中
 
-<img src=".\image-20220609212018834.png" alt="image-20220609212018834" style="zoom:50%;" />
+![image-20220609212018834](.\image-20220609212018834.png)
 
  JDK7及后续版本，**注意大坑**
 
-<img src=".\image-20220609212424076.png" alt="image-20220609212424076" style="zoom:50%;" />
+![image-20220609212424076](.\image-20220609212424076.png)
 
 #### 面试题的拓展
 
@@ -935,11 +934,11 @@ public class StringExer1 {
 
 **JDK6**
 
-<img src=".\image-20220609214414432.png" alt="image-20220609214414432" style="zoom:50%;" /> 
+![image-20220609214414432](.\image-20220609214414432.png)
 
 **JDK7/8**
 
-<img src=".\image-20220609214632691.png" alt="image-20220609214632691" style="zoom:50%;" />
+![image-20220609214632691](.\image-20220609214632691.png)
 
 **练习2**
 
@@ -958,7 +957,7 @@ public class StringExer1 {
 }
 ```
 
-<img src=".\image-20220609214832772.png" alt="image-20220609214832772" style="zoom:50%;" />
+![image-20220609214832772](.\image-20220609214832772.png)
 
 **练习3**
 
@@ -1041,9 +1040,9 @@ public class StringIntern2 {
 arr[i] = new String(String.valueOf(data[i % data.length]));
 ```
 
-<img src=".\image-20220609220206793.png" alt="image-20220609220206793" style="zoom:50%;" />
+![image-20220609220206793](.\image-20220609220206793.png)
 
-<img src=".\image-20220609220535335.png" alt="image-20220609220535335" style="zoom:50%;" />
+![image-20220609220535335](.\image-20220609220535335.png)
 
 
 
@@ -1054,9 +1053,9 @@ arr[i] = new String(String.valueOf(data[i % data.length]));
 arr[i] = new String(String.valueOf(data[i % data.length])).intern();
 ```
 
-<img src=".\image-20220609220318097.png" alt="image-20220609220318097" style="zoom:50%;" />
+![image-20220609220318097](.\image-20220609220318097.png)
 
-<img src=".\image-20220609220621701.png" alt="image-20220609220621701" style="zoom:50%;" />
+![image-20220609220621701](.\image-20220609220621701.png)
 
 **结论**：
 
@@ -1085,9 +1084,9 @@ public class StringGCTest {
 - Number of entries 和 Number of literals 明显没有 100000
 - 以上两点均说明 StringTable 区发生了垃圾回收
 
-<img src=".\image-20220609221608041.png" alt="image-20220609221608041" style="zoom:50%;" />
+![image-20220609221608041](.\image-20220609221608041.png)
 
-<img src=".\image-20220609221650498.png" alt="image-20220609221650498" style="zoom:50%;" />
+![image-20220609221650498](.\image-20220609221650498.png) 
 
 ## G1 中的 String 去重操作
 
