@@ -8,9 +8,6 @@ keywords:
 tags:
   - JVM
 cover: /images/JVM.jpg
-copyright_author: Li zm
-copyright_author_href: 'https://blog.willbright.cn'
-copyright_url: 'https://blog.willbright.cn/post/de3716.html'
 abbrlink: e91c6642
 date: 2022-10-26 00:04:24
 ---
